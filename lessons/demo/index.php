@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Demo</title>
-</head>
- <body>
-    <?php
+<?php
           
       $N_Books = [
 
@@ -42,47 +36,16 @@
           "url" => "https://en.wikipedia.org/wiki/Second_Class_Citizen_(novel)",
           "releaseYear" => "1974"
         ]
-        ];
+  ];
 
-      function libraryChecker($items, $fn)
-      {
-
-        $filteredBooks = [];
-        
-        foreach($items as $item)
-        {
-
-          if ($fn($item))
-          {
-            
-            $filteredBooks[] = $item;
-          }
-        }
-
-        return $filteredBooks;
-      }
+      
 
       $filteredItems = libraryChecker($N_Books, function($book){
 
         return $book["releaseYear"] < 2000 ;
       });
-    ?>
-
-     <ul>
-       <?php foreach($filteredItems as $book) : ?>
 
 
-          <li>
-            <a href= "<?= $book["url"]; ?>">
-              <?= $book["title"] ?> (<?= $book["releaseYear"] ?>) -By <?=$book["author"]; ?>
-            </a>    
-          </li>
-        
+      require "index.view.php";
 
 
-       <?php endforeach ; ?>
-     </ul>
-    
-    
-</body>
-</html>
